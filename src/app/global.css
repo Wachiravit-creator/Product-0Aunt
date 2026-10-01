@@ -1,0 +1,315 @@
+
+:root {
+  --bg: #f5f5f5;
+  --white: #ffffff;
+  --text: #333333;
+  --muted: #666666;
+  --border: #dddddd;
+  --primary: #2563eb;
+  --danger: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, "Noto Sans Thai", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+main {
+  width: min(100% - 2rem, 900px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* ---------- หัวข้อ ---------- */
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- ส่วนหัว ---------- */
+
+main > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+main > header h1 {
+  margin: 0;
+}
+
+main > header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+main > header > div span {
+  color: var(--muted);
+}
+
+/* ---------- รายการสินค้า ---------- */
+
+main > header + div {
+  display: grid;
+  gap: 16px;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 20px;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+article > h2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+article > p:first-of-type {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--muted);
+}
+
+article > p:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- ปุ่มแก้ไข / ลบ ---------- */
+
+article > div {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ---------- ปุ่ม ---------- */
+
+button,
+article > div > a,
+main > h1 + form > div:last-child > a,
+main > p + div > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  font: inherit;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover,
+article > div > a:hover,
+main > h1 + form > div:last-child > a:hover,
+main > p + div > a:hover {
+  background: #f0f0f0;
+}
+
+/* ปุ่ม Login / บันทึก */
+
+main > header > form > button,
+main > h1 + form button {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+main > header > form > button:hover,
+main > h1 + form button:hover {
+  background: #1d4ed8;
+}
+
+/* ปุ่มลบ */
+
+article > div > a:last-child {
+  color: var(--danger);
+}
+
+/* ปุ่มยืนยันการลบ */
+
+main > p + div button {
+  color: #ffffff;
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+main > p + div button:hover {
+  background: #b91c1c;
+}
+
+/* ---------- ไม่มีสินค้า ---------- */
+
+main > header + div > p {
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* ---------- ฟอร์มแก้ไขสินค้า ---------- */
+
+main > h1 + form {
+  display: grid;
+  gap: 20px;
+  max-width: 550px;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+main > h1 + form > div:not(:last-child) {
+  display: grid;
+  gap: 6px;
+}
+
+main > h1 + form > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #93c5fd;
+  border-color: var(--primary);
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* ---------- หน้ายืนยันการลบ ---------- */
+
+main > p {
+  max-width: 650px;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+main > p + div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Focus ---------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---------- มือถือ ---------- */
+
+@media (max-width: 600px) {
+  main {
+    width: min(100% - 1.5rem, 900px);
+    padding: 25px 0 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  main > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  main > header > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  article {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  article > h2,
+  article > p:first-of-type,
+  article > p:nth-of-type(2),
+  article > div {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  article > p:nth-of-type(2) {
+    margin-top: 5px;
+  }
+
+  main > h1 + form {
+    padding: 18px;
+  }
+}
+
